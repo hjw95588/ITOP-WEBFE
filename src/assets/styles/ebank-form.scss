@@ -1,0 +1,39 @@
+::v-deep .el-card{
+  margin-bottom: 10px;
+}
+::v-deep .el-card__header {
+  background-image: linear-gradient(to right, #D9E6EB , #4F7D96);
+  font-size: 16px;
+  font-weight: 600;
+  color: #3a556e;
+  padding: 10px;
+  // border-radius: 5px;
+}
+.ebank-form ::v-deep .el-tabs__content {
+  padding: 0;
+}
+.ebank-form ::v-deep .el-tabs__header {
+  border: none;
+}
+.ebank-form ::v-deep .el-form-item__label {
+  line-height: 16px;
+  padding: 10px;
+  font-weight: normal;
+}
+.content {
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 12%), 0 0 6px 0 rgb(0 0 0 / 4%);
+  // padding: 5px 1px 10px 1px;
+}
+.app-container {
+  .footer{
+    text-align: right;
+    ::v-deep .el-button{
+      margin-right: 0px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+}

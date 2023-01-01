@@ -1,0 +1,185 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><meta name=renderer content=webkit><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel=icon href=/favicon.ico><title>e信打卡管理平台</title><style>html,
+    body,
+    #app {
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+    .chromeframe {
+      margin: 0.2em 0;
+      background: #ccc;
+      color: #000;
+      padding: 0.2em 0;
+    }
+
+    #loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999999;
+    }
+
+    #loader {
+      display: block;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      width: 150px;
+      height: 150px;
+      margin: -75px 0 0 -75px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -webkit-animation: spin 2s linear infinite;
+      -ms-animation: spin 2s linear infinite;
+      -moz-animation: spin 2s linear infinite;
+      -o-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+      z-index: 1001;
+    }
+
+    #loader:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -webkit-animation: spin 3s linear infinite;
+      -moz-animation: spin 3s linear infinite;
+      -o-animation: spin 3s linear infinite;
+      -ms-animation: spin 3s linear infinite;
+      animation: spin 3s linear infinite;
+    }
+
+    #loader:after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -moz-animation: spin 1.5s linear infinite;
+      -o-animation: spin 1.5s linear infinite;
+      -ms-animation: spin 1.5s linear infinite;
+      -webkit-animation: spin 1.5s linear infinite;
+      animation: spin 1.5s linear infinite;
+    }
+
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+
+    #loader-wrapper .loader-section {
+      position: fixed;
+      top: 0;
+      width: 51%;
+      height: 100%;
+      background: #2A435B;
+      z-index: 1000;
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+
+    #loader-wrapper .loader-section.section-left {
+      left: 0;
+    }
+
+    #loader-wrapper .loader-section.section-right {
+      right: 0;
+    }
+
+
+    .loaded #loader-wrapper .loader-section.section-left {
+      -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      transform: translateX(-100%);
+      -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader-wrapper .loader-section.section-right {
+      -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      transform: translateX(100%);
+      -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader {
+      opacity: 0;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .loaded #loader-wrapper {
+      visibility: hidden;
+      -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      transform: translateY(-100%);
+      -webkit-transition: all 0.3s 1s ease-out;
+      transition: all 0.3s 1s ease-out;
+    }
+
+    .no-js #loader-wrapper {
+      display: none;
+    }
+
+    .no-js h1 {
+      color: #222222;
+    }
+
+    #loader-wrapper .load_title {
+      font-family: 'Open Sans';
+      color: #FFF;
+      font-size: 20px;
+      font-weight: 100;
+      width: 100%;
+      text-align: center;
+      z-index: 9999999999999;
+      position: absolute;
+      top: 60%;
+      opacity: 1;
+      line-height: 30px;
+    }
+
+    #loader-wrapper .load_title span {
+      font-weight: normal;
+      font-style: italic;
+      font-size: 14px;
+      color: #FFF;
+      opacity: 0.5;
+    }</style><link rel=stylesheet id=styleLink href="" type=text/css><meta name=revised content=1.0.5><link href=/static/css/chunk-libs.f2005ee5.css rel=stylesheet><link href=/static/css/app.545dee2b.css rel=stylesheet></head><body><div id=app><div id=loader-wrapper><div id=loader></div><div class="loader-section section-left"></div><div class="loader-section section-right"></div><div class=load_title>正在加载系统资源，请耐心等待!</div></div></div><script>(function(e){function n(n){for(var t,r,o=n[0],d=n[1],h=n[2],f=0,i=[];f<o.length;f++)r=o[f],Object.prototype.hasOwnProperty.call(u,r)&&u[r]&&i.push(u[r][0]),u[r]=0;for(t in d)Object.prototype.hasOwnProperty.call(d,t)&&(e[t]=d[t]);s&&s(n);while(i.length)i.shift()();return a.push.apply(a,h||[]),c()}function c(){for(var e,n=0;n<a.length;n++){for(var c=a[n],t=!0,r=1;r<c.length;r++){var o=c[r];0!==u[o]&&(t=!1)}t&&(a.splice(n--,1),e=d(d.s=c[0]))}return e}var t={},r={runtime:0},u={runtime:0},a=[];function o(e){return d.p+"static/js/"+({"chunk-commons":"chunk-commons"}[e]||e)+"."+{"chunk-046f5ce7":"576abea2","chunk-0a90d205":"a51e77a9","chunk-0d16595c":"4bd0115a","chunk-2d0a2db2":"848f603d","chunk-2d0e2366":"13651a23","chunk-e704a064":"57412627","chunk-2d0f012d":"510626c5","chunk-2d212b99":"8532ac5f","chunk-633ad886":"2294326c","chunk-2d21b86b":"48c6a300","chunk-43f720ae":"c986449b","chunk-20ce6200":"b4fe982a","chunk-5f3eb9d4":"c0657868","chunk-938a035a":"f14ef1bf","chunk-9a18daf2":"233d089f","chunk-commons":"00c3b88d","chunk-2e17f438":"6c14f723","chunk-176d6c4e":"fdc41834","chunk-e7d2ce6a":"640b3261","chunk-7609c709":"dc0eb03b","chunk-d8b7e430":"e080a2dc"}[e]+".js"}function d(n){if(t[n])return t[n].exports;var c=t[n]={i:n,l:!1,exports:{}};return e[n].call(c.exports,c,c.exports,d),c.l=!0,c.exports}d.e=function(e){var n=[],c={"chunk-0a90d205":1,"chunk-0d16595c":1,"chunk-e704a064":1,"chunk-43f720ae":1,"chunk-20ce6200":1,"chunk-5f3eb9d4":1,"chunk-938a035a":1,"chunk-9a18daf2":1,"chunk-commons":1,"chunk-2e17f438":1,"chunk-176d6c4e":1,"chunk-e7d2ce6a":1,"chunk-7609c709":1,"chunk-d8b7e430":1};r[e]?n.push(r[e]):0!==r[e]&&c[e]&&n.push(r[e]=new Promise((function(n,c){for(var t="static/css/"+({"chunk-commons":"chunk-commons"}[e]||e)+"."+{"chunk-046f5ce7":"31d6cfe0","chunk-0a90d205":"265d9d9a","chunk-0d16595c":"a4e6baad","chunk-2d0a2db2":"31d6cfe0","chunk-2d0e2366":"31d6cfe0","chunk-e704a064":"9bb608be","chunk-2d0f012d":"31d6cfe0","chunk-2d212b99":"31d6cfe0","chunk-633ad886":"31d6cfe0","chunk-2d21b86b":"31d6cfe0","chunk-43f720ae":"2c552267","chunk-20ce6200":"fe3cc21f","chunk-5f3eb9d4":"1897fe0c","chunk-938a035a":"0ee5ba1a","chunk-9a18daf2":"78b22a45","chunk-commons":"c140eb34","chunk-2e17f438":"533b7801","chunk-176d6c4e":"a9a7ac97","chunk-e7d2ce6a":"7217044a","chunk-7609c709":"c5ef7d10","chunk-d8b7e430":"e607cf1e"}[e]+".css",u=d.p+t,a=document.getElementsByTagName("link"),o=0;o<a.length;o++){var h=a[o],f=h.getAttribute("data-href")||h.getAttribute("href");if("stylesheet"===h.rel&&(f===t||f===u))return n()}var i=document.getElementsByTagName("style");for(o=0;o<i.length;o++){h=i[o],f=h.getAttribute("data-href");if(f===t||f===u)return n()}var s=document.createElement("link");s.rel="stylesheet",s.type="text/css",s.onload=n,s.onerror=function(n){var t=n&&n.target&&n.target.src||u,a=new Error("Loading CSS chunk "+e+" failed.\n("+t+")");a.code="CSS_CHUNK_LOAD_FAILED",a.request=t,delete r[e],s.parentNode.removeChild(s),c(a)},s.href=u;var l=document.getElementsByTagName("head")[0];l.appendChild(s)})).then((function(){r[e]=0})));var t=u[e];if(0!==t)if(t)n.push(t[2]);else{var a=new Promise((function(n,c){t=u[e]=[n,c]}));n.push(t[2]=a);var h,f=document.createElement("script");f.charset="utf-8",f.timeout=120,d.nc&&f.setAttribute("nonce",d.nc),f.src=o(e);var i=new Error;h=function(n){f.onerror=f.onload=null,clearTimeout(s);var c=u[e];if(0!==c){if(c){var t=n&&("load"===n.type?"missing":n.type),r=n&&n.target&&n.target.src;i.message="Loading chunk "+e+" failed.\n("+t+": "+r+")",i.name="ChunkLoadError",i.type=t,i.request=r,c[1](i)}u[e]=void 0}};var s=setTimeout((function(){h({type:"timeout",target:f})}),12e4);f.onerror=f.onload=h,document.head.appendChild(f)}return Promise.all(n)},d.m=e,d.c=t,d.d=function(e,n,c){d.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:c})},d.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},d.t=function(e,n){if(1&n&&(e=d(e)),8&n)return e;if(4&n&&"object"===typeof e&&e&&e.__esModule)return e;var c=Object.create(null);if(d.r(c),Object.defineProperty(c,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var t in e)d.d(c,t,function(n){return e[n]}.bind(null,t));return c},d.n=function(e){var n=e&&e.__esModule?function(){return e["default"]}:function(){return e};return d.d(n,"a",n),n},d.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},d.p="/",d.oe=function(e){throw console.error(e),e};var h=window["webpackJsonp"]=window["webpackJsonp"]||[],f=h.push.bind(h);h.push=n,h=h.slice();for(var i=0;i<h.length;i++)n(h[i]);var s=f;c()})([]);</script><script src=/static/js/chunk-elementUI.18c121c1.js></script><script src=/static/js/chunk-libs.2a3354ab.js></script><script src=/static/js/app.faddb1bd.js></script></body></html>

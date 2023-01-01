@@ -1,0 +1,320 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './btn.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+aside {
+  background: #eef1f6;
+  padding: 8px 24px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  display: block;
+  line-height: 32px;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  a {
+    color: #337ab7;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(32, 160, 255);
+    }
+  }
+}
+
+//main-container全局样式
+.app-container {
+  padding: 10px;
+  position: relative;
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.text-center {
+  text-align: center
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 600ms ease position;
+  background: linear-gradient(90deg, rgba(32, 182, 249, 1) 0%, rgba(32, 182, 249, 1) 0%, rgba(33, 120, 241, 1) 100%, rgba(33, 120, 241, 1) 100%);
+
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  &.draft {
+    background: #d0d0d0;
+  }
+
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  padding-bottom: 10px;
+
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+  line-height: 16px;
+}
+
+.multiselect--active {
+  z-index: 1000 !important;
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 6px;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height               : 6px;
+  scrollbar-arrow-color: red;
+
+}
+
+::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius        : 5px;
+  box-shadow           : inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background           : rgba(0, 0, 0, 0.2);
+  scrollbar-arrow-color: red;
+}
+
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  background   : rgba(0, 0, 0, 0.1);
+}
+
+.c-189{
+  color: #1890ff;
+}
+.pf{
+  position: fixed;
+}
+.w-100 {
+  width: 100%;
+}
+.r-0{
+  right: 0;
+}
+.b-0{
+  bottom: 0;
+}
+.b-10{
+  bottom: 10px;
+}
+.tr{
+  text-align: right;
+}
+.pad-t-10{
+  padding-top: 10px;
+}
+.pad-b-10 {
+  padding-bottom: 10px;
+}
+.pad-b-20 {
+  padding-bottom: 20px;
+}
+.h-200{
+  height: 200px;
+}
+.h-800{
+  height: 800px;
+}
+.bg-red{
+  background-color: red;
+}
+.bg-dfe{
+  background-color: #dfe4ed;
+}
+.of-auto{
+  overflow: auto;
+}
+
+.label-item{
+  display: inline-block;
+  line-height: 30px;
+  padding: 0 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 30px;
+  background-image: linear-gradient(to right, #D9E6EB , #4F7D96);
+  color: #3a556e;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+// width: 33.3%;width: 45%;
+.queryParent { display: flex; flex-wrap: wrap; justify-content: flex-start; padding: 5px; align-items: center; background-color: #fff; margin-bottom: 10px;
+  .el-form-item { width: 25%; margin-bottom: 5px!important;;
+    &.el-item-two { width: 33.3%; }
+    &.el-item-three { width: 43.3%; }
+    &.el-item-allwidth { width: 100%; }
+    &.query-item {
+      .el-form-item__content { margin-left: 0!important;}
+    }
+    &:last-child {text-align: right; flex: 1;}
+    .el-select, .el-date-editor { width: 100% !important; }
+  }
+}
+// 重置消息中心样式
+.noticeHeader { display: flex; justify-content: space-between; padding: 0 0 2px 0; height: auto !important;
+  .el-button { padding: 0 15px !important; font-size: 14px !important; line-height: 22px !important; border-radius: 50px !important; border: 0 !important;
+    & + .el-button { margin-left: 18px !important; }
+  }
+  .textBtn { padding: 0 !important; font-size: 14px !important; line-height: 22px !important; color: rgb(10, 103, 243) !important;}
+}
+// 消息中心公告
+.announCont {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; //多行在这里修改数字即可
+  overflow: hidden;
+  padding: 5px 0;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  .contInfo{
+    margin: 0;
+    color: #999;
+    font-size: 12px;
+    line-height: 18px;
+    text-indent: 10px;
+  }
+}
+
+// 表格和操作按钮
+.dataWrap {
+  .fnButon { padding-bottom: 10px; margin: 0 !important;}
+  .el-checkbox.is-bordered.el-checkbox--medium { height: auto; padding: 5px;}
+  // 重置固定列的表头样式
+  .el-table th.el-table__cell { background-color: #f8f8f9 !important; color: #515a6e !important;}
+}

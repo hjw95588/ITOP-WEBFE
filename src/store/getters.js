@@ -1,0 +1,31 @@
+const getters = {
+  sidebar: state => state.app.sidebar,
+  size: state => state.app.size,
+  device: state => state.app.device,
+  visitedViews: state => state.tagsView.visitedViews,
+  cachedViews: state => state.tagsView.cachedViews,
+  token: state => state.user.token,
+  avatar: state => state.user.avatar,
+  name: state => state.user.name,
+  userId: state => state.user.userId,
+  introduction: state => state.user.introduction,
+  roles: state => state.user.roles,
+  depts: state => state.user.depts,
+  posts: state => state.user.posts,
+  fullDepts: state => state.user.fullDepts,
+  permissions: state => state.user.permissions,
+  permission_routes: state => state.permission.routes,
+  workDetail: state => state.work.workDetail,
+  browseWorkDetail: state => state.work.browseWorkDetail,
+  routerPath: state => state.work.routerPath, //浏览跳转路由名称
+  approvalVariables: state => state.work.approvalVariables,
+  bizFlowVariables: state => state.work.bizFlowVariables,
+  noticeUnreadCont: state => state.message.noticeUnreadCont, // 通知未读数
+  dealWithCont: state => state.message.dealWithCont, // 待办未读数
+  annountCont: state => state.message.annountCont, // 公告未读数
+  mixedRoutes: state => state.permission.mixedSidbarRoutes,
+  projParams: state=> state.proj.queryParams,
+  essListParams: state => state.proj.essListParams,
+  workListPagenum: state => state.work.pageNumber // 工作台页码
+}
+export default getters
